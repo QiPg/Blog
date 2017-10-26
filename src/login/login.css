@@ -1,0 +1,22 @@
+body{
+	background: url(//cn.bing.com/az/hprichbg/rb/AmalfiCathedral_ZH-CN9007250446_1366x768.jpg) no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.login form{
+	padding:26px 24px 46px;
+	background: rgba(251,251,251,0.3);
+}
+.login .container{
+	margin-top: 100px;
+}
+.login .avater{
+	display:block;
+	width: 80px;
+	height:80px;
+	background: url(http://img3.imgtn.bdimg.com/it/u=4055103447,3658068806&fm=214&gp=0.jpg) no-repeat;
+	background-size: contain;
+	border-radius: 50%;
+	margin: 20px auto;
+}
+

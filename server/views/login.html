@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+	</head>
+	<body class="login">
+		<div class="container">
+		 <div class="row">
+		 	<h1>
+		 		<a class="avater" href="/"></a>
+		 	</h1>
+		 	<div id="errorMesg" style="display:none;" class="alert alert-danger col-sm-4 col-sm-offset-4">
+            
+           </div>
+		 	<form class="col-sm-4 col-sm-offset-4">
+		 		<div class="form-group">
+		 			<label for="username">用户名</label>
+		 			<input type="text" class="form-control" id="username" name="username"/>
+		 		</div>
+		 		<div class="form-group">
+		 			<label for="username">密码</label>
+		 			<input type="password" class="form-control" id="password" name="password"/>
+		 		</div>
+		 		<button type="submit" class="btn btn-primary pull-right">登录</button>
+		 	</form>
+		 </div>	
+		</div>
+		<script type="text/javascript" src="/public/common/admin-lib.js" ></script>
+		<script data-main="login/login" src="/public/common/main.js" ></script>
+	</body>
+</html>
