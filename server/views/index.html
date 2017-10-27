@@ -1,18 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <!--<link rel="stylesheet" href="../../public/css/main.css" />-->
-</head>
-<body>
-我是index2
-<script src="/public/common/main.js"></script>
-<!--
-	作者：1478642895@qq.com
-	时间：2017-10-20
-	描述：服务器启动后浏览器自动刷新
--->
-<!--<script src="/reload/reload.js"></script>-->
-</body>
-</html>
+{% extends './layout.html' %} {% block title %} 首页 {% endblock %} {% block content%}
+
+<div id="content" class="post-index">
+	{% for article in articles%}
+
+	<article class="post type-post status-publish format-standard hentry category-tea-words" style="opacity: 1;">
+		<div class="article-wrap">
+			<header class="entry-header">
+				<h1>
+                            <a href="/article/detail/{{article.id}}" rel="bookmark" class="post-title pjax" title="{{article.title}}">
+                                 {{article.title}}								
+                            </a>
+               </h1>
+
+			</header>
+
+			<div class="entry-content">
+				<p>
+					<a href="/article/detail/{{article.id}}" class="post-title has-img-a pjax" title="{{article.title}}" rel="bookmark">
+						<img src="{{article.cover}}">
+					</a>
+				</p>
+				<p> {{article.body|raw()}}</p>
+			</div>
+			<p style="text-align: right;"><span style="color: #c2c2d6;">{{article.time.toISOString().substring(0,10)}}</span></p>
+		</div>
+	</article>
+	{%endfor%}
+</div>
+
+{% endblock %} {% block js %}
+<script data-main="index/index" src="/public/common/main.js"></script>
+{% endblock %}

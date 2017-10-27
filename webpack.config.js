@@ -6,6 +6,7 @@ module.exports = {
 	entry: {
 		'common/main': [srcPath + '/common/main.js', 'webpack-hot-middleware/client?reload=true'],
 		'common/admin-lib':['jquery','bootstrap','BOOTSTRAP_CSS'],//public/common/admin-lib.js
+		'common/lib':['jquery','APP_CSS']
 	},
 	//出口文件
 	output: {
@@ -20,7 +21,8 @@ module.exports = {
 		alias: {
 			SRC: srcPath,
 			BOOTSTRAP_CSS:'bootstrap/dist/css/bootstrap.css',
-			BOOTSTRAP_TABLE_CSS:'bootstrap-table/dist/bootstrap-table.css'
+			BOOTSTRAP_TABLE_CSS:'bootstrap-table/dist/bootstrap-table.css',
+			APP_CSS:'SRC/common/app.less'
 		}
 	},
 	//加载器
@@ -31,8 +33,8 @@ module.exports = {
 				use: 'url-loader',
 			},
 			{
-				test: /\.css$/,
-				use: ['style-loader', 'css-loader?sourceMap']
+				test: /\.(css|less)$/,
+				use: ['style-loader', 'css-loader?sourceMap','less-loader']
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf|otf|svg)$/,

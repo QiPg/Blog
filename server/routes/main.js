@@ -1,12 +1,35 @@
 const express = require('express');
 let Article = require('../dbModels/Article');
 const router = express.Router();
-router.get('/', (req, res, next) => {
+//router.get('/', (req, res, next) => {
+//	res.render('index');
+//});
+
+router.use((req, res, next) => {
+	res.locals.isAjax = req.xhr;
+	next();
+})
+/*
+ * 文章首页
+ */
+router.get('/index', (req, res, next) => {
 	res.render('index');
 });
 
-router.get('/index', (req, res, next) => {
-	res.render('index');
+/*
+ * 文章详情
+ */
+router.get('/article/detail/:id', (req, res, next) => {
+	let id=req.params.id;
+	Article.findById(id).then(article=>{
+		if(article){
+			res.render('article-detail',{
+				  article
+			});
+		}
+	}).catch(error=>{
+		res.render('404');
+	})
 });
 
 /**
@@ -15,8 +38,10 @@ router.get('/index', (req, res, next) => {
 router.get('/login', (req, res, next) => {
 	res.render('login');
 });
-router.get('/article/list', (req, res, next) => {
-    console.log(Article+"对象");
+/**
+ * 文章首页列表
+ */
+router.get('/', (req, res, next) => {
 	let page = req.query.page || 1;
 	let offset = ((page - 1) * 9); //起始页
 	//查询数据总共有多少条
@@ -43,7 +68,9 @@ router.get('/article/list', (req, res, next) => {
 
             return  item;
         });
-        res.json(articles);
+        res.render('index',{
+        	articles
+        });
 	})
 })
 module.exports = router;
