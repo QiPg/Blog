@@ -9,7 +9,6 @@ let responseMesg;
 //在进入下面的路由之前，先调用中间件处理下
 //该中间件在api。js里，所以只拦截api。js里面的路由
 router.use((req, resp, next) => {
-    console.log('中间件进来了');
     //初始化一下数据格式
     responseMesg = {
         success: false,
@@ -38,7 +37,6 @@ router.post('/user/check',(request,response,next)=>{
         password: parms.password
     })
     .then((user) => {
-    	 console.log('查询结果'+user);
         if (user) {
             responseMesg.success = true;
             responseMesg.message = '登陆成功';

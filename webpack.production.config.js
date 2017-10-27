@@ -10,20 +10,22 @@ module.exports = {
 	//入口文件
 	entry: {
 		'common/main': [srcPath + '/common/main.js'],
-		'common/admin-lib':['bootstrap','BOOTSTRAP_CSS']
+		'common/admin-lib':['bootstrap','BOOTSTRAP_CSS'],
+		'common/lib':['jquery','APP_CSS']
 	},
 	//出口文件
 	output: {
 		path: __dirname + '/public',
 		filename: '[name].js',
-		publicPath: 'http://localhost:8080/public'
+		publicPath: 'http://localhost:8080/public/'
 	},
 	resolve: {
 		modules:[srcPath,'node_modules'],//指定webpack查找规则
 		alias: {
 			SRC: srcPath,
 			BOOTSTRAP_CSS:'bootstrap/dist/css/bootstrap.css',
-			BOOTSTRAP_TABLE_CSS:'bootstrap-table/dist/bootstrap-table.css'
+			BOOTSTRAP_TABLE_CSS:'bootstrap-table/dist/bootstrap-table.css',
+			APP_CSS:'SRC/common/app.less'
 		}
 	},
 	//加载器
@@ -34,10 +36,10 @@ module.exports = {
 				use: 'url-loader?limit=8192&context=client&name=/img/[name].[ext]',
 			},
 			{
-				test: /\.css$/,
+				test: /\.(css|less)$/,
 				use: ExtractTextPlugin.extract({
-					fallback: "style-loader",
-					use: "css-loader"
+					fallback: 'style-loader',
+					use: ['css-loader','less-loader']
 				})
 			},
 			{

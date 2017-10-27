@@ -93,7 +93,8 @@ router.get('/article/add', (req, res, next) => {
 router.get('/article/:id', (req, res, next) => {
 	Article.findById(req.params.id).then(article => {
 		res.render('admin/article-edit', {
-			article
+			article,
+			user:req.session.user
 		});
 	})
 
@@ -130,5 +131,12 @@ router.delete('/article/:id', (req, res, next) => {
 		}
 	})
 
+});
+/*
+ * 退出
+ */
+router.get('/logout', (req, res, next) => {
+	req.session.user=null;
+	res.redirect('/login');
 });
 module.exports = router;

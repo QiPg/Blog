@@ -1,8 +1,5 @@
-//require('bootstrap');
-//require('BOOTSTRAP_CSS');
-require('./login.css');
+require('!style-loader!css-loader!./login.css');
 let MD5=require('md5.js');
-//module.exports={};
 $('.login form').on('submit', function(e) {
 	e.preventDefault();
 	let [username, password] = [this.username.value.trim(), this.password.value.trim()];

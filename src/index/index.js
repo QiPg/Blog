@@ -1,6 +1,4 @@
 function reset() {
-	require('./index.css');
-	console.log(123456);
 	let _margin = 6 * 2;
 	let $content = $('#content.post-index'); //父级
 	let $articles = $content.find('article'); //卡片集合

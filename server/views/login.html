@@ -3,6 +3,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>登录</title>
+		{% if !isDev %}
+		<link rel="stylesheet" href="/public/css/admin-lib.css" />
+		{% endif %}
 	</head>
 	<body class="login">
 		<div class="container">
