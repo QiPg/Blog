@@ -1,0 +1,25 @@
+{%extends './layout.html' %} {% block title%} 个人资料修改 {% endblock %} {% block content%}
+<div class="container">
+	<form>
+		<input type="hidden" name="id" id="id" value="{{user._id}}" />
+		<div class="form-group">
+			<label name="username">昵称</label>
+			<input value="{{user.username}}" name="username" type="text" class="form-control input-sm" id="username" placeholder="请输入你要修改的昵称" />
+		</div>
+		<div class="form-group">
+			<label name="usericon">头像</label>
+			<img src=""/>
+          <input type="file" name="usericon" />
+		</div>
+		<div class="form-group">
+			<label name="userbackgorund">背景图</label>
+			<img src=""/>
+          <input type="file" name="userbackgorund" />
+		</div>
+		<a type="button" class="btn btn-primary pull-left" href="/admin/index">取消</a>
+		<button type="submit" class="btn btn-primary pull-right">保存</button>
+	</form>
+</div>
+{% endblock %} {% block js%}
+<script data-main="admin/article/myinfo" src="/public/common/main.js"></script>
+{% endblock %}

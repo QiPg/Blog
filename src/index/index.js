@@ -42,3 +42,4 @@ reset();
 window.onresize = function() {
 	reset();
 }
+

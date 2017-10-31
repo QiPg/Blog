@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 let Article = require('../dbModels/Article');
-
+let User = require('../dbModels/User');
 //后端响应给前端的数据格式
 let responseMesg;
 router.use((req, resp, next) => {
@@ -26,7 +26,41 @@ router.get('/index', (req, res, next) => {
 		user: req.session.user
 	});
 });
+/*
+ * 跳转到个人资料修改页面
+ */
+router.get('/myinfo', (req, res, next) => {
+	res.render('admin/article-myinfo', {
+		user: req.session.user
+	});
+});
+/*
+ * 保存用户资料
+ */
+router.post('/article/updatemyinfo', (req, res, next) => {
+	let parms = req.body;
+	console.log('你你哦你哦'+'parms.username:'+parms.username+'parms.id:'+parms.id);
+	if(!parms.username) {
+		responseMesg.message = '昵称不能为空！';
+		res.json(responseMesg);
+		return;
+	}
+	
+	User.findByIdAndUpdate(parms.id, {
+		username: parms.username
+	}).then(user => {
+		if(user) {
+			responseMesg.success = true;
+			responseMesg.message = '资料修改成功！';
+			res.json(responseMesg);
+		}else{
+			responseMesg.success = false;
+			responseMesg.message = '资料修改失败！';
+			res.json(responseMesg);
+		}
+	});
 
+});
 /**
  * 查询列表（一次性查出所有数据）
  */
@@ -94,7 +128,7 @@ router.get('/article/:id', (req, res, next) => {
 	Article.findById(req.params.id).then(article => {
 		res.render('admin/article-edit', {
 			article,
-			user:req.session.user
+			user: req.session.user
 		});
 	})
 
@@ -136,7 +170,7 @@ router.delete('/article/:id', (req, res, next) => {
  * 退出
  */
 router.get('/logout', (req, res, next) => {
-	req.session.user=null;
+	req.session.user = null;
 	res.redirect('/login');
 });
 module.exports = router;

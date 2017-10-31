@@ -52,4 +52,16 @@ router.post('/user/check',(request,response,next)=>{
         }
     });
 });
+//router.get('/user/registe', (req, res, next) => {
+//	new User({
+//		username:'QiBing',
+//		password:'23a7de346c8ba51487f2ca28087d331c',
+//		email:'lijiao.919.foxmail.com'
+//	}).save().then(user=>{
+//		res.json(user);
+//	}).catch(err=>{
+//		res.json('失败');
+//	});
+//});
+
 module.exports=router;

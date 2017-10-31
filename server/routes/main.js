@@ -1,5 +1,6 @@
 const express = require('express');
 let Article = require('../dbModels/Article');
+let User = require('../dbModels/User');
 const router = express.Router();
 //router.get('/', (req, res, next) => {
 //	res.render('index');
@@ -13,7 +14,7 @@ router.use((req, res, next) => {
  * 文章首页
  */
 router.get('/index', (req, res, next) => {
-	res.render('index');
+	getWzlb(req, res, next);
 });
 
 /*
@@ -41,7 +42,11 @@ router.get('/login', (req, res, next) => {
 /**
  * 文章首页列表
  */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res, next)=>{
+	getWzlb(req, res, next);
+});
+
+function getWzlb (req, res, next){
 	let page = req.query.page || 1;
 	let offset = ((page - 1) * 9); //起始页
 	//查询数据总共有多少条
@@ -69,8 +74,8 @@ router.get('/', (req, res, next) => {
             return  item;
         });
         res.render('index',{
-        	articles
+        	articles,
         });
 	})
-})
+};
 module.exports = router;
