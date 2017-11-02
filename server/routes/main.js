@@ -51,7 +51,7 @@ function getWzlb (req, res, next){
 	let offset = ((page - 1) * 9); //起始页
 	//查询数据总共有多少条
 	Article.count().then(count => {
-		responseMesg.data.total = count;
+//		responseMesg.data.total = count;
 	});
 	//skip  limit  跳过前面skip条数据，然后往后取limit条数据
 	Article.find().sort({

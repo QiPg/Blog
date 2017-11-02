@@ -39,7 +39,6 @@ router.get('/myinfo', (req, res, next) => {
  */
 router.post('/article/updatemyinfo', (req, res, next) => {
 	let parms = req.body;
-	console.log('你你哦你哦'+'parms.username:'+parms.username+'parms.id:'+parms.id);
 	if(!parms.username) {
 		responseMesg.message = '昵称不能为空！';
 		res.json(responseMesg);
