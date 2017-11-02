@@ -8,4 +8,4 @@
 开发模式命令：npm run dev5;<br>
 生产模式开启服务器命令：npm run dev2 (node app.js);<br>
 生产模式编译命令：npm run build<br>
-![liancheng](http://www.kmlckj.com/uploads/image/20150107/14206130186833.jpg "我的公司，联诚")
+![](http://www.qi618.com/image/shui.png "嘿嘿")
