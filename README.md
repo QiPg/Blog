@@ -1,5 +1,6 @@
 # Blog
-个人博客
+个人博客<br>
+>>千里之行，始于hello world
 ## 使用方法
 * npm install;<br>
 * npm install supervisor -g;
