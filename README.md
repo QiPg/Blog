@@ -9,3 +9,6 @@
 生产模式编译命令：npm run build<br>
 
 ![liancheng](http://www.kmlckj.com/uploads/image/20150107/14206130186833.jpg "我的公司，联诚")
+
+[![baidu]](http://baidu.com)  
+[baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo" 
