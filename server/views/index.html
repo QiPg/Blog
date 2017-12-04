@@ -24,7 +24,10 @@
 			<p style="text-align: right;"><span style="color: #c2c2d6;">{{article.time.toISOString().substring(0,10)}}</span></p>
 		</div>
 	</article>
-	{%endfor%}
+	{%endfor%} {% if total>9 %}
+	<input type="hidden" id="total" value="{{total}}" />
+	<div style="width: 140px;bottom: 0;position:absolute;margin: 0 auto;left: 50%;margin-left: -74px;"><button style="margin-right:10px ;" id="shangye">上一页</button ><button style="margin-left: 10px;" id="xiaye">下一页</button></div>
+	{% endif %}
 </div>
 
 {% endblock %} {% block js %}
