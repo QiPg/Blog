@@ -49,9 +49,11 @@ router.get('/', (req, res, next)=>{
 function getWzlb (req, res, next){
 	let page = req.query.page || 1;
 	let offset = ((page - 1) * 9); //起始页
+	let total=0;
+	console.log("page:"+page+"offset:"+offset)
 	//查询数据总共有多少条
 	Article.count().then(count => {
-//		responseMesg.data.total = count;
+		total = count;
 	});
 	//skip  limit  跳过前面skip条数据，然后往后取limit条数据
 	Article.find().sort({
@@ -75,6 +77,7 @@ function getWzlb (req, res, next){
         });
         res.render('index',{
         	articles,
+        	total
         });
 	})
 };
