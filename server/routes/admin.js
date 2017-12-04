@@ -39,22 +39,33 @@ router.get('/myinfo', (req, res, next) => {
  */
 router.post('/article/updatemyinfo', (req, res, next) => {
 	let parms = req.body;
+	let da=parms.username;
+	let daa=da.split('+');
 	if(!parms.username) {
-		responseMesg.message = '昵称不能为空！';
+		responseMesg.message = '昵称不能为空呐！';
 		res.json(responseMesg);
 		return;
 	}
-	
+	if(daa.length!=2){
+		responseMesg.message = '你和主人亲密不够，修改不了哦';
+		res.json(responseMesg);
+		return;
+	}
+	if(daa[1]!="你乔"){
+		responseMesg.message = '你和主人亲密不够，修改不了哦';
+		res.json(responseMesg);
+		return;
+	}
 	User.findByIdAndUpdate(parms.id, {
 		username: parms.username
 	}).then(user => {
 		if(user) {
 			responseMesg.success = true;
-			responseMesg.message = '资料修改成功！';
+			responseMesg.message = '资料修改成功！说明主人还是爱你的';
 			res.json(responseMesg);
 		}else{
 			responseMesg.success = false;
-			responseMesg.message = '资料修改失败！';
+			responseMesg.message = '资料修改失败！这都会修改失败，主人也会有大意的时候啊';
 			res.json(responseMesg);
 		}
 	});
