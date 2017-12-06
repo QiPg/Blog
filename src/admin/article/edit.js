@@ -32,7 +32,7 @@ $('form').validate({
 	rules: {
 		title: {
 			required: true,
-			maxlength: 16
+			maxlength:50
 		},
 		body: {
 			required: true
