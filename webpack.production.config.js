@@ -17,7 +17,7 @@ module.exports = {
 	output: {
 		path: __dirname + '/public',
 		filename: '[name].js',
-		publicPath: 'http://localhost:8080/public/'
+		publicPath: 'http://localhost:8080/public'
 	},
 	resolve: {
 		modules:[srcPath,'node_modules'],//指定webpack查找规则

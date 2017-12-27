@@ -12,7 +12,7 @@ module.exports = {
 	output: {
 		path: __dirname + '/public',
 		filename: '[name].js',
-		publicPath: 'http://localhost:3000/public'
+		publicPath: 'http://localhost:3000/public'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 	},
 	//除去编译后会产生很无用的多代码
 	devtool: 'eval-source-map',
