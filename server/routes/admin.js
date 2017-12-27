@@ -35,27 +35,10 @@ router.get('/myinfo', (req, res, next) => {
 	});
 });
 /*
- * 保存用户资料
+ * 保存用户资料（此功能为个人隐私，os部分代码省略）
  */
 router.post('/article/updatemyinfo', (req, res, next) => {
-	let parms = req.body;
-	let da=parms.username;
-	let daa=da.split('+');
-	if(!parms.username) {
-		responseMesg.message = '昵称不能为空呐！';
-		res.json(responseMesg);
-		return;
-	}
-	if(daa.length!=2){
-		responseMesg.message = '你和主人亲密不够，修改不了哦';
-		res.json(responseMesg);
-		return;
-	}
-	if(daa[1]!="你乔"){
-		responseMesg.message = '你和主人亲密不够，修改不了哦';
-		res.json(responseMesg);
-		return;
-	}
+	
 	User.findByIdAndUpdate(parms.id, {
 		username: daa[0]
 	}).then(user => {
