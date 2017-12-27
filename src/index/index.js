@@ -70,7 +70,7 @@ function qingqqiu() {
 		}
 		let dd=++ddd;
 		if(dd>yesu){
-			$.Prompt("欢迎光临本站!4S",4000);("已经是最后一页了");
+			$.Prompt("已经是最后一页了",3000);
 			return;
 		}
 		qq(dd);

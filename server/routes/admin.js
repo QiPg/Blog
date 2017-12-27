@@ -57,7 +57,7 @@ router.post('/article/updatemyinfo', (req, res, next) => {
 		return;
 	}
 	User.findByIdAndUpdate(parms.id, {
-		username: parms.username
+		username: daa[0]
 	}).then(user => {
 		if(user) {
 			responseMesg.success = true;
